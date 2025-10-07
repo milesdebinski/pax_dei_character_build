@@ -8,10 +8,12 @@
 body {
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     sans-serif;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #ffffff;
+  background: linear-gradient(135deg, #2c1810 0%, #3d2318 50%, #4a2c1a 100%);
+  color: #f4e4bc;
   min-height: 100vh;
   line-height: 1.6;
+  margin: 0;
+  padding: 0;
 }
 
 /* App Container */
@@ -30,9 +32,9 @@ body {
 }
 
 .header-content {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   text-align: center;
 }
 
@@ -40,12 +42,8 @@ body {
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: gradientShift 3s ease-in-out infinite;
+  color: #f4e4bc;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 @keyframes gradientShift {
@@ -60,7 +58,7 @@ body {
 
 .subtitle {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(244, 228, 188, 0.8);
   font-weight: 300;
 }
 
@@ -71,9 +69,9 @@ body {
 }
 
 .builder-container {
-  max-width: 1200px;
+  max-width: 1600px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -83,12 +81,12 @@ body {
 /* Panel Styles */
 .equipment-panel,
 .stats-panel {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(139, 69, 19, 0.3);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(160, 82, 45, 0.6);
   border-radius: 16px;
   padding: 1.5rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .panel-header {
@@ -119,36 +117,54 @@ body {
 }
 
 .armor-type-selector select {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  background: rgba(139, 69, 19, 0.9);
+  border: 2px solid rgba(160, 82, 45, 1);
+  color: #f4e4bc;
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 .armor-type-selector select:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(78, 205, 196, 0.5);
+  background: rgba(160, 82, 45, 0.9);
+  border-color: rgba(184, 115, 51, 1);
+  color: #fff8dc;
 }
 
 .armor-type-selector select:focus {
   outline: none;
-  border-color: rgba(78, 205, 196, 0.8);
-  box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
+  border-color: rgba(184, 115, 51, 1);
+  box-shadow: 0 0 0 2px rgba(184, 115, 51, 0.3);
+}
+
+.armor-type-selector select option {
+  background: rgba(139, 69, 19, 0.95) !important;
+  color: #f4e4bc !important;
+  padding: 0.5rem;
+  font-weight: 500;
+}
+
+/* Fix for slot type selectors */
+.slot-type-selector option {
+  background: rgba(139, 69, 19, 0.95) !important;
+  color: #f4e4bc !important;
+  padding: 0.5rem;
+  font-weight: 500;
 }
 
 .panel-header h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #ffffff;
+  color: #f4e4bc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .panel-header i {
   margin-right: 0.5rem;
-  color: #4ecdc4;
+  color: rgba(218, 165, 32, 1);
 }
 
 .reset-btn {
@@ -170,7 +186,7 @@ body {
 /* Equipment Slots */
 .equipment-slots {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
 
@@ -183,9 +199,9 @@ body {
 }
 
 .equipment-slot:hover {
-  border-color: rgba(78, 205, 196, 0.5);
+  border-color: rgba(218, 165, 32, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(78, 205, 196, 0.2);
+  box-shadow: 0 8px 25px rgba(218, 165, 32, 0.2);
 }
 
 .slot-header {
@@ -200,7 +216,7 @@ body {
 
 .slot-header i {
   margin-right: 0.5rem;
-  color: #4ecdc4;
+  color: rgba(218, 165, 32, 1);
 }
 
 .slot-armor-type {
@@ -222,13 +238,13 @@ body {
 
 .slot-type-selector:hover {
   background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(78, 205, 196, 0.5);
+  border-color: rgba(218, 165, 32, 0.5);
 }
 
 .slot-type-selector:focus {
   outline: none;
-  border-color: rgba(78, 205, 196, 0.8);
-  box-shadow: 0 0 0 1px rgba(78, 205, 196, 0.2);
+  border-color: rgba(218, 165, 32, 0.8);
+  box-shadow: 0 0 0 1px rgba(218, 165, 32, 0.2);
 }
 
 .shield-note {
@@ -269,45 +285,34 @@ body {
 .stat-category h3 {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #4ecdc4;
+  color: rgba(218, 165, 32, 1);
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid rgba(78, 205, 196, 0.3);
+  border-bottom: 1px solid rgba(218, 165, 32, 0.3);
 }
 
-.stat-grid {
+/* Skills Columns Layout */
+.skills-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
-.stat-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stat-name {
+.skills-column h4 {
+  color: rgba(218, 165, 32, 1);
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.stat-value {
   font-weight: 600;
-  color: #4ecdc4;
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Skills Container */
 .skills-container {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(139, 69, 19, 0.2);
+  border: 2px solid rgba(160, 82, 45, 0.4);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.75rem;
   min-height: 120px;
 }
 
@@ -317,13 +322,145 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(244, 228, 188, 0.6);
   font-size: 0.9rem;
 }
 
 .no-skills i {
   font-size: 2rem;
   margin-bottom: 0.5rem;
+}
+
+/* Equipment Skills Groups */
+.equipment-skills-group {
+  margin-bottom: 0.75rem;
+  border: 1px solid rgba(160, 82, 45, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.equipment-source {
+  background: rgba(160, 82, 45, 0.4);
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid rgba(160, 82, 45, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.equipment-slot-name {
+  font-weight: 600;
+  color: rgba(218, 165, 32, 1);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.equipment-name {
+  color: #f4e4bc;
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.skills-list {
+  padding: 0.5rem;
+}
+
+/* Individual Skill Items */
+.skill-item {
+  background: rgba(139, 69, 19, 0.3);
+  border: 1px solid rgba(160, 82, 45, 0.4);
+  border-radius: 4px;
+  padding: 0.5rem;
+  margin-bottom: 0.35rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: rgba(160, 82, 45, 0.4);
+  border-color: rgba(218, 165, 32, 0.6);
+  transform: translateY(-1px);
+}
+
+.skill-item.selected {
+  background: rgba(218, 165, 32, 0.2);
+  border-color: rgba(218, 165, 32, 0.8);
+  box-shadow: 0 2px 8px rgba(218, 165, 32, 0.2);
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.skill-name {
+  font-weight: 600;
+  color: #f4e4bc;
+  font-size: 0.85rem;
+}
+
+.skill-status {
+  font-size: 0.7rem;
+  color: rgba(244, 228, 188, 0.7);
+  font-style: italic;
+}
+
+.skill-item.selected .skill-status {
+  color: rgba(218, 165, 32, 1);
+  font-weight: 500;
+}
+
+.skill-description {
+  color: rgba(244, 228, 188, 0.8);
+  font-size: 0.75rem;
+  line-height: 1.3;
+  margin-top: 0.15rem;
+}
+
+/* Equipment item level requirement styling */
+.equipment-level-requirement {
+  color: rgba(218, 165, 32, 0.8);
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Available skills heading */
+.available-skills-heading {
+  color: rgba(218, 165, 32, 1);
+  font-size: 0.9rem;
+  margin: 0.75rem 0 0.5rem 0;
+  font-weight: 600;
+}
+
+/* Skill preview styling */
+.skill-preview {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(139, 69, 19, 0.4);
+  border-radius: 4px;
+  border-left: 3px solid rgba(218, 165, 32, 0.6);
+}
+
+.skill-preview-name {
+  font-weight: 600;
+  color: #f4e4bc;
+  margin-bottom: 0.25rem;
+}
+
+.skill-preview-description {
+  font-size: 0.8rem;
+  color: rgba(244, 228, 188, 0.8);
+  line-height: 1.3;
+}
+
+/* Equipped item styling */
+.equipped-item h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+  color: #f4e4bc;
 }
 
 /* Modal Styles */
@@ -333,8 +470,8 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
   display: none;
   align-items: center;
   justify-content: center;
@@ -347,15 +484,15 @@ body {
 }
 
 .modal-content {
-  background: rgba(26, 26, 46, 0.95);
+  background: rgba(139, 69, 19, 0.95);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(160, 82, 45, 1);
   border-radius: 16px;
   width: 100%;
   max-width: 600px;
   max-height: 80vh;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 .modal-header {
@@ -403,34 +540,38 @@ body {
 
 .equipment-item,
 .skill-item {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(160, 82, 45, 0.3);
+  border: 2px solid rgba(184, 115, 51, 0.6);
   border-radius: 8px;
   padding: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-bottom: 0.75rem;
 }
 
 .equipment-item:hover,
 .skill-item:hover {
-  background: rgba(78, 205, 196, 0.1);
-  border-color: rgba(78, 205, 196, 0.3);
+  background: rgba(184, 115, 51, 0.4);
+  border-color: rgba(218, 165, 32, 0.8);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .equipment-item h4,
 .skill-item h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: #f4e4bc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .equipment-item p,
 .skill-item p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(244, 228, 188, 0.9);
   margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
 .equipment-stats,
@@ -441,8 +582,8 @@ body {
 }
 
 .stat-badge {
-  background: rgba(78, 205, 196, 0.2);
-  color: #4ecdc4;
+  background: rgba(218, 165, 32, 0.2);
+  color: rgba(218, 165, 32, 1);
   padding: 0.25rem 0.5rem;
   border-radius: 4px;
   font-size: 0.8rem;
@@ -457,11 +598,7 @@ body {
   }
 
   .equipment-slots {
-    grid-template-columns: 1fr;
-  }
-
-  .stat-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .title {
@@ -485,18 +622,18 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(78, 205, 196, 0.5);
+  background: rgba(218, 165, 32, 0.5);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(78, 205, 196, 0.7);
+  background: rgba(218, 165, 32, 0.7);
 }
 
 /* Animation for equipment slots */
 .equipment-slot.equipped {
-  border-color: rgba(78, 205, 196, 0.8);
-  background: rgba(78, 205, 196, 0.05);
+  border-color: rgba(218, 165, 32, 0.8);
+  background: rgba(218, 165, 32, 0.05);
 }
 
 .equipment-slot.equipped .slot-content {
@@ -505,8 +642,8 @@ body {
 
 /* Skill selection styling */
 .skill-item.selected {
-  background: rgba(78, 205, 196, 0.2);
-  border-color: rgba(78, 205, 196, 0.5);
+  background: rgba(218, 165, 32, 0.2);
+  border-color: rgba(218, 165, 32, 0.5);
 }
 
 .skill-item.selected::after {
@@ -514,7 +651,7 @@ body {
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
-  color: #4ecdc4;
+  color: rgba(218, 165, 32, 1);
   font-weight: bold;
 }
 

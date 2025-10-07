@@ -78,16 +78,17 @@ class PaxDeiCharacterBuilder {
     if (equipment) {
       slotContent.innerHTML = `
                 <div class="equipped-item">
-                    <h4>${equipment.name}</h4>
+                    <h4>${equipment.name}${
+        equipment.levelRequirement
+          ? ` <span class="equipment-level-requirement">(${equipment.levelRequirement})</span>`
+          : ""
+      }</h4>
                     <p class="item-type">${equipment.description}</p>
                     <div class="item-skills">
                         <small>Skills: ${equipment.skills
-                          .map((s) => s.name)
+                          .map((s) => s.name + (s.level ? ` ${s.level}` : ""))
                           .join(", ")}</small>
                     </div>
-                    <button class="remove-btn" onclick="characterBuilder.removeEquipment('${slot}')">
-                        <i class="fas fa-times"></i>
-                    </button>
                 </div>
             `;
       slotElement.classList.add("equipped");
@@ -152,36 +153,87 @@ class PaxDeiCharacterBuilder {
 
   // Skills Management
   updateSkillsDisplay() {
-    const skillsContainer = document.getElementById("skills-container");
+    const weaponSkillsContainer = document.getElementById(
+      "weapon-skills-container"
+    );
+    const armorSkillsContainer = document.getElementById(
+      "armor-skills-container"
+    );
 
-    // Get all available skills from equipped items
-    const availableSkills = this.getAllAvailableSkills();
+    // Separate weapon and armor skills
+    const weaponSlots = ["weapon", "shield"];
+    const armorSlots = ["helmet", "chest", "legs", "boots"];
 
-    if (availableSkills.length === 0) {
-      skillsContainer.innerHTML = `
-                <div class="no-skills">
-                    <i class="fas fa-info-circle"></i>
-                    <span>Select equipment to view available skills</span>
-                </div>
-            `;
+    this.updateSkillsColumn(weaponSkillsContainer, weaponSlots);
+    this.updateSkillsColumn(armorSkillsContainer, armorSlots);
+  }
+
+  updateSkillsColumn(container, slots) {
+    const skillsByEquipment = {};
+    let hasSkills = false;
+
+    slots.forEach((slot) => {
+      const equipment = this.character.equipment[slot];
+      if (equipment && equipment.skills) {
+        skillsByEquipment[slot] = {
+          equipment: equipment,
+          skills: equipment.skills,
+        };
+        hasSkills = true;
+      }
+    });
+
+    if (!hasSkills) {
+      const slotType = slots.includes("weapon") ? "weapon" : "armor";
+      container.innerHTML = `
+        <div class="no-skills">
+          <i class="fas fa-info-circle"></i>
+          <span>Select ${slotType} to view skills</span>
+        </div>
+      `;
       return;
     }
 
-    const skillsHtml = availableSkills
-      .map((skill) => {
-        const isSelected = this.character.selectedSkills[skill.id];
+    const skillsHtml = Object.entries(skillsByEquipment)
+      .map(([slot, data]) => {
+        const slotSkills = data.skills
+          .map((skill) => {
+            const isSelected = this.character.selectedSkills[skill.id];
+            return `
+            <div class="skill-item ${
+              isSelected ? "selected" : ""
+            }" onclick="characterBuilder.toggleSkill('${skill.id}')">
+              <div class="skill-header">
+                <span class="skill-name">${skill.name}${
+              skill.level ? ` ${skill.level}` : ""
+            }</span>
+                <span class="skill-status">${
+                  isSelected ? "✓ Selected" : "Click to select"
+                }</span>
+              </div>
+              <div class="skill-description">${skill.description}</div>
+            </div>
+          `;
+          })
+          .join("");
+
         return `
-                <div class="skill-item ${
-                  isSelected ? "selected" : ""
-                }" onclick="characterBuilder.toggleSkill('${skill.id}')">
-                    <h4>${skill.name}</h4>
-                    <p>${skill.description}</p>
-                </div>
-            `;
+          <div class="equipment-skills-group">
+            <div class="equipment-source">
+              <span class="equipment-slot-name">${
+                slot.charAt(0).toUpperCase() + slot.slice(1)
+              }</span>
+              <span class="equipment-name">${data.equipment.name}</span>
+            </div>
+            <div class="skills-list">
+              ${slotSkills}
+            </div>
+          </div>
+        `;
       })
       .join("");
 
-    skillsContainer.innerHTML = skillsHtml;
+    container.innerHTML = skillsHtml;
   }
 
   getAllAvailableSkills() {
@@ -250,12 +302,28 @@ class PaxDeiCharacterBuilder {
                 <div class="equipment-item" onclick="characterBuilder.selectEquipment('${
                   item.id
                 }')">
-                    <h4>${item.name}</h4>
+                    <h4>${item.name}${
+            item.levelRequirement
+              ? ` <span class="equipment-level-requirement">(${item.levelRequirement})</span>`
+              : ""
+          }</h4>
                     <p class="item-description">${item.description}</p>
                     <div class="item-skills">
-                        <small>Skills: ${item.skills
-                          .map((s) => s.name)
-                          .join(", ")}</small>
+                        <h5 class="available-skills-heading">Available Skills:</h5>
+                        ${item.skills
+                          .map(
+                            (skill) => `
+                          <div class="skill-preview">
+                            <div class="skill-preview-name">${skill.name}${
+                              skill.level ? ` ${skill.level}` : ""
+                            }</div>
+                            <div class="skill-preview-description">${
+                              skill.description
+                            }</div>
+                          </div>
+                        `
+                          )
+                          .join("")}
                     </div>
                 </div>
             `

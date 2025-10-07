@@ -4,76 +4,252 @@ const EQUIPMENT_DATABASE = {
   weapons: {
     "1h": [
       {
-        id: "short-sword",
-        name: "Short Sword",
-        description: "One-handed sword for quick strikes",
-        skills: [
-          {
-            id: "quick-strike",
-            name: "Quick Strike",
-            description: "Fast attack with reduced damage but higher accuracy",
-          },
-        ],
-      },
-      {
         id: "mace",
         name: "Mace",
         description: "One-handed blunt weapon",
         skills: [
           {
-            id: "crushing-blow",
-            name: "Crushing Blow",
-            description: "Heavy attack that can stun enemies",
+            id: "commanding-strike",
+            name: "Commanding Strike",
+            description:
+              "Swing your weapon with authority. Deal 130 damage and become threatening, 334% increased threat generation for 10 seconds.",
+          },
+          {
+            id: "forceful-strike",
+            name: "Forceful Strike",
+            description:
+              "Perform a heavy strike, dealing 116 damage and stunning enemies for 2 seconds.",
+          },
+          {
+            id: "earthquake",
+            name: "Earthquake",
+            description:
+              "Smash down violently, fracturing the ground beneath you. The impact deals 391 damage and weakens enemies, reducing their damage by -12,3% for 18 seconds.",
           },
         ],
       },
       {
-        id: "dagger",
-        name: "Dagger",
-        description: "One-handed piercing weapon",
+        id: "sword",
+        name: "Sword",
+        description: "One-handed blade weapon",
         skills: [
           {
-            id: "backstab",
-            name: "Backstab",
-            description: "Critical damage when attacking from behind",
+            id: "righteous-strike",
+            name: "Righteous Strike",
+            description:
+              "Deal 193 damage. Each strike fills you with divine rapture, increasing attack speed by 4% and movement speed by 5% for 10 seconds. Effect stacks up to 4 times.",
+          },
+          {
+            id: "jolting-kick",
+            name: "Jolting Kick",
+            description:
+              "Perform a kick that deals 192 damage and interrupts enemy spell casting. If a spell is interrupted, the target also becomes silenced for 10 seconds.",
+          },
+          {
+            id: "crusaders-bid",
+            name: "Crusader's Bid",
+            description:
+              "Deals damage based on the amount of divine rapture stacks on you. 199 | 319 | 478 | 677 damage. Consumes all stacks when used.",
+          },
+        ],
+      },
+      {
+        id: "handspear",
+        name: "Handspear",
+        description: "One-handed thrusting weapon",
+        skills: [
+          {
+            id: "swift-jab",
+            name: "Swift Jab",
+            description:
+              "Quickly drive your spear forward in a focused thrust, dealing 194 damage.",
+          },
+          {
+            id: "barrage",
+            name: "Barrage",
+            description:
+              "Overwhelm your target with relentless pressure. Deliver a rapid series of thrusts, each striking for 148.",
+          },
+          {
+            id: "intercept",
+            name: "Intercept",
+            description:
+              "Leap forward to deliver a crippling strike, dealing 365 and reducing the target movement speed by 50% for 8 seconds.",
           },
         ],
       },
     ],
     "2h": [
       {
-        id: "great-sword",
-        name: "Great Sword",
-        description: "Two-handed heavy sword",
-        skills: [
-          {
-            id: "cleave",
-            name: "Cleave",
-            description: "Sweeping attack that hits multiple enemies",
-          },
-        ],
-      },
-      {
-        id: "war-hammer",
-        name: "War Hammer",
+        id: "great-maul",
+        name: "Great Maul",
         description: "Two-handed crushing weapon",
         skills: [
           {
-            id: "devastating-blow",
-            name: "Devastating Blow",
-            description: "Massive damage attack with long windup",
+            id: "vexing-sweep",
+            name: "Vexing Sweep",
+            description:
+              "Deliver a powerful sideways smash, dealing 321 damage and generating 100 threat.",
+          },
+          {
+            id: "overhead-slam",
+            name: "Overhead Slam",
+            description:
+              "Prepare for a powerful strike and slam your mace down, dealing 380 damage and 132 threat.",
+          },
+          {
+            id: "tempest-command",
+            name: "Tempest Command",
+            description:
+              "Become the eye of a storm. Command violent winds to spiral around you, pulling nearby enemies into your reach. Enemies are chained for 2 seconds upon landing.",
           },
         ],
       },
       {
-        id: "staff",
-        name: "Staff",
-        description: "Two-handed magical weapon",
+        id: "great-axe",
+        name: "Great Axe",
+        description: "Two-handed slashing weapon",
         skills: [
           {
-            id: "arcane-blast",
-            name: "Arcane Blast",
-            description: "Magical ranged attack",
+            id: "armor-shred",
+            name: "Armor Shred",
+            description:
+              "Deliver a powerful overhead chop, dealing 162 damage and each strike adds a armor shred on the target. Reduces the target's physical defense by -20 for 10 seconds. Stacks up to 3 times.",
+          },
+          {
+            id: "vicious-sweep",
+            name: "Vicious Sweep",
+            description:
+              "Swing in a broad arc, dealing 342 damage. All enemies struck gain armor shred charges equal to the highest count among targets hit.",
+          },
+          {
+            id: "radiant-cleave",
+            name: "Radiant Cleave",
+            description:
+              "A vicious twirling, forward moving attack - sending the axe blade's razor cutting edge through anything within reach. Deals 333 damage on both swings.",
+          },
+        ],
+      },
+      {
+        id: "greatsword",
+        name: "Greatsword",
+        description: "Two-handed heavy blade weapon",
+        skills: [
+          {
+            id: "righteous-slash",
+            name: "Righteous Slash",
+            description:
+              "Deal 214 damage. Each strike fills you with divine rapture, increasing attack speed by 4% and movement speed by 5% for 10 seconds. Effect stacks up to 4 times.",
+          },
+          {
+            id: "guardbreaker",
+            name: "Guardbreaker",
+            description:
+              "Perform a heavy rising slash that breaks through blocks, dealing 337 damage. Successfully breaking a block briefly stuns the enemy.",
+          },
+          {
+            id: "crusaders-closing",
+            name: "Crusader's Closing",
+            description:
+              "Deals damage based on the amount of divine rapture stacks on you. 274 | 440 | 659 | 933 damage. Consumes all stacks when used.",
+          },
+        ],
+      },
+      {
+        id: "polearm",
+        name: "Polearm",
+        description: "Two-handed long thrusting weapon",
+        skills: [
+          {
+            id: "heavy-thrust",
+            name: "Heavy Thrust",
+            description: "Thrust the spear forward to deal 224 damage.",
+          },
+          {
+            id: "impaling-strike",
+            name: "Impaling Strike",
+            description:
+              "Drive the spear down to incapacitate your target, causing them to be chained for 7 seconds. Deals 411 damage.",
+          },
+          {
+            id: "overhook",
+            name: "Overhook",
+            description:
+              "Perform a full reach thrust for 367 damage. Pull the polearm back to launch the enemy behind your position. Enemy is chained for 2 seconds on landing.",
+          },
+        ],
+      },
+      {
+        id: "staff-of-zephyr",
+        name: "Staff of Zephyr",
+        description: "Two-handed healing staff for Clerics",
+        skills: [
+          {
+            id: "divine-orb",
+            name: "Divine Orb",
+            description:
+              "Fire a projectile which will splash 152 health to allies within 4 meters.",
+          },
+          {
+            id: "divine-intervention-zephyr",
+            name: "Divine Intervention",
+            description:
+              "Heal a target below 40% health for 336, otherwise heal for a reduced amount 152.",
+          },
+          {
+            id: "zephyr-of-life",
+            name: "Zephyr of Life",
+            description:
+              "Channel healing energy within 6 meter radius around you, giving 160 health up to 6 times.",
+          },
+        ],
+      },
+      {
+        id: "staff-of-divine",
+        name: "Staff of Divine",
+        description: "Two-handed healing staff for Clerics",
+        skills: [
+          {
+            id: "remedy",
+            name: "Remedy",
+            description: "Heal a single ally, or yourself for 179 health.",
+          },
+          {
+            id: "divine-intervention-divine",
+            name: "Divine Intervention",
+            description:
+              "Heal a target below 40% health for 336, otherwise heal for a reduced amount 152.",
+          },
+          {
+            id: "detonation-of-life",
+            name: "Detonation of Life",
+            description:
+              "Place a 5 meter area which will burst after 2 seconds giving allies in the area 443 health.",
+          },
+        ],
+      },
+      {
+        id: "sylvan-staff",
+        name: "Sylvan Staff",
+        description: "Two-handed nature healing staff",
+        skills: [
+          {
+            id: "regrowth",
+            name: "Regrowth",
+            description:
+              "Give a stack of regrowth to an ally, providing 14 | 27 | 39 health per second for 8 seconds. After 3 stacks have been applied, the next stack will overflow giving 152 health and removing all stacks.",
+          },
+          {
+            id: "overgrowth",
+            name: "Overgrowth",
+            description:
+              "Heal allies within 7 meters based on the number of regrowth stacks on them for 98 | 120 | 160 | 205 and refresh the duration of all regrowth effects.",
+          },
+          {
+            id: "bloodfed-grove",
+            name: "Bloodfed Grove",
+            description:
+              "Place a 8 meter area lasting 5 seconds which applies a scaling heal over time based on the number of enemies inside the area for 106 | 112 | 123 | 123 | 135.",
           },
         ],
       },
@@ -83,40 +259,10 @@ const EQUIPMENT_DATABASE = {
   // Shields
   shields: [
     {
-      id: "wooden-shield",
-      name: "Wooden Shield",
-      description: "Basic wooden shield",
-      skills: [
-        {
-          id: "shield-bash",
-          name: "Shield Bash",
-          description: "Bash with shield to stun enemy",
-        },
-      ],
-    },
-    {
-      id: "iron-shield",
-      name: "Iron Shield",
-      description: "Sturdy iron shield",
-      skills: [
-        {
-          id: "shield-wall",
-          name: "Shield Wall",
-          description: "Increase block chance for short duration",
-        },
-      ],
-    },
-    {
-      id: "tower-shield",
-      name: "Tower Shield",
-      description: "Large protective shield",
-      skills: [
-        {
-          id: "fortress-stance",
-          name: "Fortress Stance",
-          description: "Immobile but highly defensive stance",
-        },
-      ],
+      id: "basic-shield",
+      name: "Basic Shield",
+      description: "A simple shield for basic defense",
+      skills: [],
     },
   ],
 
@@ -126,37 +272,49 @@ const EQUIPMENT_DATABASE = {
       {
         id: "pilgrims-hood",
         name: "Pilgrim's Hood",
+        armorType: "light",
+        slot: "helmet",
         description: "Universal light helmet with spirit restoration",
+        levelRequirement: "Universal",
         skills: [
           {
             id: "breath-of-spirit",
             name: "Breath of Spirit",
-            description: "Replenish Energy Spirit",
+            description: "Replenish {Energy} Spirit",
+            level: "",
           },
         ],
       },
       {
         id: "shepherds-hairband-quiet-gaze",
         name: "Shepherd's Hairband of Quiet Gaze",
+        armorType: "light",
+        slot: "helmet",
         description: "Stealth-focused light helmet",
+        levelRequirement: "Universal",
         skills: [
           {
             id: "pacify",
             name: "Pacify",
             description:
-              "Places an unknowing target into a lulled state, reducing their awareness by 75%. Has no effect on enemies who are already aware of your presence.",
+              "Places an unknowing target into a lulled state, reducing their awareness by {-75}%. Has no effect on enemies who are already aware of your presence. Effect lasts for {Duration}",
+            level: "",
           },
         ],
       },
       {
         id: "clerics-cap-absolution",
         name: "Cleric's Cap of Absolution",
-        description: "Cleric helmet with purification powers (Level 10+)",
+        armorType: "light",
+        slot: "helmet",
+        description: "Cleric helmet with purification powers",
+        levelRequirement: "Level 10+",
         skills: [
           {
             id: "purify-self",
             name: "Purify Self",
             description: "Remove all harmful effects from yourself",
+            level: "",
           },
         ],
       },

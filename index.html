@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pax Dei Character Builder</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-content">
+          <h1 class="title">
+            <i class="fas fa-shield-alt"></i>
+            Pax Dei Character Builder
+          </h1>
+          <p class="subtitle">
+            Build and optimize your character with equipment and skills
+          </p>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="builder-container">
+          <!-- Equipment Selection Panel -->
+          <section class="equipment-panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-helmet-battle"></i> Equipment</h2>
+              <button class="reset-btn" onclick="resetCharacter()">
+                <i class="fas fa-undo"></i> Reset
+              </button>
+            </div>
+
+            <div class="equipment-slots">
+              <!-- Weapon Slot -->
+              <div class="equipment-slot" data-slot="weapon">
+                <div class="slot-header">
+                  <i class="fas fa-sword"></i>
+                  <span>Weapon</span>
+                  <div class="slot-armor-type">
+                    <select
+                      onchange="setSlotArmorType('weapon', this.value)"
+                      class="slot-type-selector"
+                    >
+                      <option value="">Any</option>
+                      <option value="1h">1-Handed</option>
+                      <option value="2h">2-Handed</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="slot-content"
+                  onclick="openEquipmentSelector('weapon')"
+                >
+                  <div class="empty-slot">
+                    <i class="fas fa-plus"></i>
+                    <span>Select Weapon</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Shield Slot -->
+              <div class="equipment-slot" data-slot="shield" id="shield-slot">
+                <div class="slot-header">
+                  <i class="fas fa-shield-alt"></i>
+                  <span>Shield</span>
+                  <div class="slot-armor-type">
+                    <span class="shield-note">Requires 1H Weapon</span>
+                  </div>
+                </div>
+                <div
+                  class="slot-content"
+                  onclick="openEquipmentSelector('shield')"
+                >
+                  <div class="empty-slot">
+                    <i class="fas fa-plus"></i>
+                    <span>Select Shield</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Helmet Slot -->
+              <div class="equipment-slot" data-slot="helmet">
+                <div class="slot-header">
+                  <i class="fas fa-helmet-battle"></i>
+                  <span>Helmet</span>
+                  <div class="slot-armor-type">
+                    <select
+                      onchange="setSlotArmorType('helmet', this.value)"
+                      class="slot-type-selector"
+                    >
+                      <option value="">Any</option>
+                      <option value="light">Light</option>
+                      <option value="medium">Medium</option>
+                      <option value="heavy">Heavy</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="slot-content"
+                  onclick="openEquipmentSelector('helmet')"
+                >
+                  <div class="empty-slot">
+                    <i class="fas fa-plus"></i>
+                    <span>Select Helmet</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chest Slot -->
+              <div class="equipment-slot" data-slot="chest">
+                <div class="slot-header">
+                  <i class="fas fa-vest"></i>
+                  <span>Chest</span>
+                  <div class="slot-armor-type">
+                    <select
+                      onchange="setSlotArmorType('chest', this.value)"
+                      class="slot-type-selector"
+                    >
+                      <option value="">Any</option>
+                      <option value="light">Light</option>
+                      <option value="medium">Medium</option>
+                      <option value="heavy">Heavy</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="slot-content"
+                  onclick="openEquipmentSelector('chest')"
+                >
+                  <div class="empty-slot">
+                    <i class="fas fa-plus"></i>
+                    <span>Select Chest</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Legs Slot -->
+              <div class="equipment-slot" data-slot="legs">
+                <div class="slot-header">
+                  <i class="fas fa-pants"></i>
+                  <span>Legs</span>
+                  <div class="slot-armor-type">
+                    <select
+                      onchange="setSlotArmorType('legs', this.value)"
+                      class="slot-type-selector"
+                    >
+                      <option value="">Any</option>
+                      <option value="light">Light</option>
+                      <option value="medium">Medium</option>
+                      <option value="heavy">Heavy</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="slot-content"
+                  onclick="openEquipmentSelector('legs')"
+                >
+                  <div class="empty-slot">
+                    <i class="fas fa-plus"></i>
+                    <span>Select Legs</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Boots Slot -->
+              <div class="equipment-slot" data-slot="boots">
+                <div class="slot-header">
+                  <i class="fas fa-boot"></i>
+                  <span>Boots</span>
+                  <div class="slot-armor-type">
+                    <select
+                      onchange="setSlotArmorType('boots', this.value)"
+                      class="slot-type-selector"
+                    >
+                      <option value="">Any</option>
+                      <option value="light">Light</option>
+                      <option value="medium">Medium</option>
+                      <option value="heavy">Heavy</option>
+                    </select>
+                  </div>
+                </div>
+                <div
+                  class="slot-content"
+                  onclick="openEquipmentSelector('boots')"
+                >
+                  <div class="empty-slot">
+                    <i class="fas fa-plus"></i>
+                    <span>Select Boots</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Character Stats Panel -->
+          <section class="stats-panel">
+            <div class="panel-header">
+              <h2><i class="fas fa-chart-line"></i> Character Stats</h2>
+            </div>
+
+            <div class="stats-container">
+              <div class="stat-category">
+                <h3>Combat Stats</h3>
+                <div class="stat-grid">
+                  <div class="stat-item">
+                    <span class="stat-name">Attack Power</span>
+                    <span class="stat-value" id="attack-power">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-name">Defense</span>
+                    <span class="stat-value" id="defense">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-name">Health</span>
+                    <span class="stat-value" id="health">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-name">Stamina</span>
+                    <span class="stat-value" id="stamina">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stat-category">
+                <h3>Attributes</h3>
+                <div class="stat-grid">
+                  <div class="stat-item">
+                    <span class="stat-name">Strength</span>
+                    <span class="stat-value" id="strength">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-name">Dexterity</span>
+                    <span class="stat-value" id="dexterity">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-name">Intelligence</span>
+                    <span class="stat-value" id="intelligence">0</span>
+                  </div>
+                  <div class="stat-item">
+                    <span class="stat-name">Wisdom</span>
+                    <span class="stat-value" id="wisdom">0</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="stat-category">
+                <h3>Skills</h3>
+                <div class="skills-container" id="skills-container">
+                  <div class="no-skills">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Select equipment to view available skills</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <!-- Equipment Selector Modal -->
+      <div class="modal-overlay" id="equipment-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="modal-title">Select Equipment</h3>
+            <button class="close-btn" onclick="closeEquipmentSelector()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="equipment-list" id="equipment-list">
+              <!-- Equipment items will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill Selector Modal -->
+      <div class="modal-overlay" id="skill-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="skill-modal-title">Select Skills</h3>
+            <button class="close-btn" onclick="closeSkillSelector()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="skill-list" id="skill-list">
+              <!-- Skills will be populated here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="equipment-data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

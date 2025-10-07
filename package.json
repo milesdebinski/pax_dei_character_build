@@ -1,0 +1,21 @@
+{
+  "name": "pax-dei-character-builder",
+  "version": "1.0.0",
+  "description": "Character build calculator for Pax Dei with equipment and skill selection",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx live-server --port=3000",
+    "start": "npx live-server --port=3000"
+  },
+  "keywords": [
+    "pax-dei",
+    "character-builder",
+    "rpg",
+    "calculator"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

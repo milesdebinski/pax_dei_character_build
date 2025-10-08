@@ -35,6 +35,37 @@ npm run dev
 
 Or simply open `index.html` in your web browser.
 
+## Deployment
+
+### Deploy to Netlify (Recommended - Public)
+
+1. Install dependencies (includes Netlify CLI):
+
+   ```bash
+   npm install
+   ```
+
+2. Deploy to Netlify (public, no authentication required):
+
+   ```bash
+   npm run deploy
+   ```
+
+3. Your app will be available at: `https://pax-dei-character-builder.netlify.app`
+
+### Alternative: Deploy to Vercel
+
+1. Install Netlify CLI:
+
+   ```bash
+   npm i -g netlify-cli
+   ```
+
+2. Build and deploy:
+   ```bash
+   netlify deploy --prod --dir .
+   ```
+
 ## Usage
 
 1. **Select Equipment**: Click on any equipment slot to open the equipment selector

@@ -5,7 +5,10 @@
   "main": "index.html",
   "scripts": {
     "dev": "npx live-server --port=3000",
-    "start": "npx live-server --port=3000"
+    "start": "npx live-server --port=3000",
+    "build": "echo 'Static build - no build step needed'",
+    "deploy": "netlify deploy --prod --dir .",
+    "deploy:vercel": "vercel --prod"
   },
   "keywords": [
     "pax-dei",
@@ -16,6 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "live-server": "^1.2.2"
+    "live-server": "^1.2.2",
+    "netlify-cli": "^17.0.0"
   }
 }

@@ -144,11 +144,33 @@ class PaxDeiCharacterBuilder {
 
   // Slot Armor Type Management
   setSlotArmorType(slot, armorType) {
+    // Check if armor type is changing
+    const previousArmorType = this.character.slotArmorTypes[slot];
+    const isChanging = previousArmorType !== armorType;
+
+    // Update the armor type
     this.character.slotArmorTypes[slot] = armorType;
-    this.showNotification(
-      `${slot} filter set to: ${armorType || "Any"}`,
-      "info"
-    );
+
+    // If armor type is changing and there's an equipped item, reset it
+    if (isChanging && this.character.equipment[slot]) {
+      const equippedItem = this.character.equipment[slot];
+      this.character.equipment[slot] = null;
+      this.updateEquipmentSlot(slot, null);
+      this.updateShieldAvailability();
+      this.updateSkillsDisplay();
+
+      this.showNotification(
+        `${equippedItem.name} removed - armor type changed to ${
+          armorType || "Any"
+        }`,
+        "info"
+      );
+    } else {
+      this.showNotification(
+        `${slot} filter set to: ${armorType || "Any"}`,
+        "info"
+      );
+    }
   }
 
   // Skills Management
@@ -672,7 +694,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .equipped-item h4 {
             font-size: 0.9rem;
             margin-bottom: 0.25rem;
-            color: #4ecdc4;
+            color: #f4e4bc;
         }
         
         .item-type {
